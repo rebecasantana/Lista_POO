@@ -1,43 +1,29 @@
 package Exercio1;
 
-public class Cliente {
+public abstract class Cliente {
 
-	private String nomeCompleto;
-	private String cpf;
-	private String endereco;
+	private String nome;
 	private String telefone;
+	private Integer idade;
 	private String email;
+	private String endereco;
+	private Integer tipo;
 
-	public Cliente(String nomeCompleto, String cpf, String endereco, String telefone, String email) {
-		this.nomeCompleto = nomeCompleto;
-		this.cpf = cpf;
-		this.endereco = endereco;
+	public Cliente(String nome, String telefone, Integer idade, String email, String endereco, Integer tipo) {
+		this.nome = nome;
 		this.telefone = telefone;
+		this.idade = idade;
 		this.email = email;
+		this.endereco = endereco;
+		this.tipo = tipo;
 	}
 
 	public String getNome() {
-		return nomeCompleto;
+		return nome;
 	}
 
-	public void setNome(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 	public String getTelefone() {
@@ -48,6 +34,14 @@ public class Cliente {
 		this.telefone = telefone;
 	}
 
+	public Integer getIdade() {
+		return idade;
+	}
+
+	public void setIdade(Integer idade) {
+		this.idade = idade;
+	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -56,7 +50,28 @@ public class Cliente {
 		this.email = email;
 	}
 
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public Integer getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
+	}
+
 	public void visualizar() {
-		System.out.println(nomeCompleto + ", " + cpf + ", " + endereco + ", " + telefone + ", " + email);
+		String tipo = "";
+		switch (this.tipo) {
+		case 1 -> System.out.println("Pessoa Física");
+		case 2 -> System.out.println("Pessoa Juridica");
+		}
+		System.out.println(nome + ", " + telefone + ", " + idade + ", " + email + ", " + endereco + ", " + tipo);
 	}
 }
